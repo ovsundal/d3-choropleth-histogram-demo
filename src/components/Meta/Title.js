@@ -7,7 +7,7 @@ export default class Title extends Component {
     get yearsFragment() {
         const year = this.props.filteredBy.year;
 
-        return year === '*' ? "": `in ${year}`
+        return year === '*' ? "": ` in ${year}`
     }
 
     get USstateFragment() {
@@ -29,9 +29,9 @@ export default class Title extends Component {
         } else {
             title = `Software ${jobTitle}s on an H1B`;
             if(year === '*') {
-                title += ' make';
+                title += ' make ';
             } else {
-                title += ' made';
+                title += ' made ';
             }
         }
 
@@ -60,7 +60,7 @@ export default class Title extends Component {
             title = (
                 <h2>
                     {this.jobTitleFragment} ${mean}/year
-                    {this.USstateFragment ? `in ${this.stateFragment}`: ''}
+                    {this.USstateFragment ? ` in ${this.stateFragment}`: ''}
                     {this.yearsFragment}
                 </h2>
             );
