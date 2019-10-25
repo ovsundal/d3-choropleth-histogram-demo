@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import * as d3 from 'd3';
 
 const MedianLine = ({
@@ -12,11 +12,15 @@ const MedianLine = ({
     median
 }) => {
 
-    const yScale = d3
+    const yScale = useMemo(
+        () =>
+            d3
         .scaleLinear()
         .domain([0, d3.max(data, value)])
         .range([height - y - bottomMargin, 0]),
-        line = d3.line()([[0, 5], [width, 5]]);
+        [height, y, bottomMargin, value, data]);
+
+    const line = useMemo(() => d3.line()([[0, 5], [width, 5]]), [width]);
 
     const medianValue = median || d3.median(data, value);
 

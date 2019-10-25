@@ -97,7 +97,7 @@ class App extends Component {
                         y={0}
                         width={500}
                         height={500}
-                        zoom={null}
+                        zoom={zoom}
                     />
 
                     <rect x={'500'} y={'0'}
